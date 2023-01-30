@@ -20,11 +20,23 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     if($row["sex"]=="M"){
         if($row["age"]>=15){
-            echo "นาย" . $row["id"]. " - Name: " . $row["fname"]. " " . $row["lname"]. "<br>";
+            echo "นาย".$row["fname"]." ".$row["lname"]. "<br>";
         }
         else{
-            echo "ด.ช.".$row["fname"]. " ". $row["lname"]. "<br>";
-          }
+            echo "ด.ช.".$row["fname"]." ".$row["lname"]. "<br>";
+        }
+    }else{
+        if($row["age"]>=15){
+            if($row["marry_status"]=="M"){
+                echo "นาง".$row["fname"]." ".$row["lname"]. "<br>";
+            }else{
+                echo "น.ส.".$row["fname"]." ".$row["lname"]. "<br>";
+            }
+           
+        }
+        else{
+            echo "ด.ญ.".$row["fname"]." ".$row["lname"]. "<br>";
+        }
     }
   }
 } else {
